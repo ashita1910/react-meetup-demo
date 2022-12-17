@@ -1,0 +1,16 @@
+.meetup-img {
+    height: 300px;
+}
+
+.meetup-item {
+    width: 75%;
+}
+
+@media (min-width: 768px) {
+    .meetup-item {
+        width: 50%;
+    }
+    .meetup-img {
+        height: 400px;
+    }
+}
