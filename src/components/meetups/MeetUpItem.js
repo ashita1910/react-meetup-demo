@@ -9,6 +9,7 @@ function MeetUpItem(props) {
           <h5 className="card-title">{props.MeetUpItem.title}</h5>
           <p className="card-text">{props.MeetUpItem.description}</p>
           <p className="card-text text-danger">{props.MeetUpItem.address}</p>
+          <button className="btn btn-danger">Add To Favorites</button>
         </div>
       </Card>
     </div>
