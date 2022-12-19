@@ -15,7 +15,7 @@ function AllMeetUps() {
       })
       .then((data) => {
         LoadingHandler(false);
-        const MeetUpArr = [];
+        let MeetUpArr = [];
         Object.keys(data).forEach((key) => {
           const obj = { ...data[key], id: key };
           MeetUpArr.push(obj);

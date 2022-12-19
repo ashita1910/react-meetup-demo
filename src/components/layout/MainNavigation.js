@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import classNames from "classnames";
-import classes from "./MainNavigation.module.css";
+import FavoritesContext from "../../store/favorites-context";
+// import classNames from "classnames";
+// import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
+  const favoritesCxt = useContext(FavoritesContext);
+
   return (
     <nav className={"navbar navbar-expand-lg navbar-dark bg-danger"}>
       <a className="navbar-brand ms-3" href="#">
@@ -34,6 +38,9 @@ function MainNavigation() {
           <li className="nav-item ms-3">
             <Link className="nav-link" to="/favorites">
               Favorites
+              <span className="badge badge-dark">
+                {favoritesCxt.favoritesCount}
+              </span>
             </Link>
           </li>
         </ul>
