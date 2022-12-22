@@ -9,6 +9,12 @@ function MeetUpItem(props) {
   async function isItemFavorite() {
     if (isFavorite) {
       await favoritesCtx.removeFavoriteItem(props?.MeetUpItem?.id);
+      await fetch(
+        `https://react-meetup-demo-7a609-default-rtdb.firebaseio.com/favorites/${props?.MeetUpItem?.id}.json`,
+        {
+          method: "DELETE",
+        }
+      );
     } else {
       const obj = {
         id: props?.MeetUpItem?.id,
@@ -18,16 +24,16 @@ function MeetUpItem(props) {
         address: props?.MeetUpItem?.address,
       };
       await favoritesCtx.addFavoriteItem(obj);
-      // await fetch(
-      //   "https://react-meetup-demo-7a609-default-rtdb.firebaseio.com/favorites.json",
-      //   {
-      //     method: "POST",
-      //     body: JSON.stringify(obj),
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // );
+      await fetch(
+        `https://react-meetup-demo-7a609-default-rtdb.firebaseio.com/favorites/${obj?.id}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(obj),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
   }
 
