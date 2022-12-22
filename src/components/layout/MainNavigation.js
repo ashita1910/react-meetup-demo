@@ -13,7 +13,7 @@ function MainNavigation() {
         Navbar
       </a>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler me-3"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
